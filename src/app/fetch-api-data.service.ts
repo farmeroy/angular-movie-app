@@ -11,11 +11,12 @@ import { map } from 'rxjs/operators';
 
 // Declare the api url
 const apiUrl = ' http://pre-code-flix.herokuapp.com/';
+// logic for error handling
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserRegistrationService {
+export class FetchApiDataService {
   // Inject the HttpClient module to the constructor params
   // This will prove HttpClient to the class, making it available via this.http
   constructor(private http: HttpClient) {}
@@ -25,6 +26,29 @@ export class UserRegistrationService {
     return this.http
       .post(apiUrl + 'users', userDetails)
       .pipe(catchError(this.handleError));
+  }
+
+  public userLogin(loginDetails: any): Observable<any> {
+    console.log(loginDetails);
+    return this.http
+      .post(apiUrl + 'login', loginDetails)
+      .pipe(catchError(this.handleError));
+  }
+
+  public getAllMovies(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http
+      .get(apiUrl + 'movies', {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${token}`,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
+  private extractResponseData(res: Response): any {
+    const body = res;
+    return body || {};
   }
 
   private handleError(error: HttpErrorResponse): any {
@@ -37,8 +61,4 @@ export class UserRegistrationService {
     }
     return throwError('Something bad happend, please try again later.');
   }
-}
-
-export class FetchApiDataService {
-  constructor() {}
 }
