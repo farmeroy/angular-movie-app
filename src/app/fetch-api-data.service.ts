@@ -145,6 +145,20 @@ export class FetchApiDataService {
       .pipe(catchError(this.handleError));
   }
 
+  public removeFavMovie(
+    username: string,
+    movieID: string
+  ): Observable<unknown> {
+    const token = localStorage.getItem('token');
+    return this.http
+      .put(`${apiUrl}users/${username}/movies/${movieID}`, movieID, {
+        headers: new HttpHeaders({
+          'Content-Type': 'text/html',
+          Authorization: `Bearer ${token}`,
+        }),
+      })
+      .pipe(catchError(this.handleError));
+  }
   private extractResponseData(res: any): any {
     const body = res;
     return body || {};
