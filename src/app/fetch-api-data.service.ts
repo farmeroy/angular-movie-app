@@ -79,6 +79,61 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  public getUserDetails(username: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http
+      .get(`${apiUrl}users/${username}`, {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${token}`,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
+  public getFavMovies(username: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    return (
+      this.http
+        .get(`${apiUrl}/users/${username}`, {
+          headers: new HttpHeaders({
+            Authorization: `Bearer ${token}`,
+          }),
+        })
+        // this just returns the user object
+        // must add a filter function to only return
+        // response.data.FavMovies
+        // try: map(this.extractResponseData).FavMovies ?
+        .pipe(map(this.extractResponseData), catchError(this.handleError))
+    );
+  }
+
+  public addFavMovie(username: string, movieID: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http
+      .put(`${apiUrl}users/${username}/movies/${movieID}`, movieID, {
+        headers: new HttpHeaders({
+          'Content-Type': 'text/html',
+          Authorization: `Bearer ${token}`,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
+  public updateUserDetails(
+    username: string,
+    userDetails: any
+  ): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http
+      .put(`${apiUrl}users/${username}/update`, userDetails, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
   private extractResponseData(res: any): any {
     const body = res;
     return body || {};
