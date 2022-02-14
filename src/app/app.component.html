@@ -1,1 +1,7 @@
-
+<div class="container">
+  <h2>Sign in Form</h2>
+  <form [formGroup]="valueForm" (ngSubmit)="onSubmit()">
+    <input type="text" id="value" name="value" fromControlName="input" />
+    <button type="submit">Submit</button>
+  </form>
+</div>
