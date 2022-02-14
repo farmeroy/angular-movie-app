@@ -17,7 +17,9 @@ export class UserLoginFormComponent implements OnInit {
     public snackBar: MatSnackBar
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
       console.log(response);
       this.dialogRef.close();
