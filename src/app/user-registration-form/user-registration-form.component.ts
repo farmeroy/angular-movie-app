@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./user-registration-form.component.scss'],
 })
 export class UserRegistrationFormComponent implements OnInit {
+  // define the data that is input (user data) to the component
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   constructor(
