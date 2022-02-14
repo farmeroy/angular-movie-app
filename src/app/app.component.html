@@ -1,13 +1,12 @@
-<div class="container">
-  <h2>Sign in Form</h2>
-  <form [formGroup]="valueForm" (ngSubmit)="onSubmit()">
-    <input type="text" id="value" name="value" fromControlName="input" />
-    <input
-      type="text"
-      id="username"
-      name="username"
-      fromControlName="username"
-    />
-    <button type="submit">Submit</button>
-  </form>
+<div class="main-page">
+  <h1>Welcom to myFlix</h1>
+  <button
+    mat-raised-button
+    (click)="openUserRegistrationDialog()"
+    style="margin-right: 10px"
+    color="primary"
+  >
+    Sign Up
+  </button>
+  <button mat-raised-button color="primary">Login</button>
 </div>
