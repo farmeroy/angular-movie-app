@@ -2,6 +2,12 @@
   <h2>Sign in Form</h2>
   <form [formGroup]="valueForm" (ngSubmit)="onSubmit()">
     <input type="text" id="value" name="value" fromControlName="input" />
+    <input
+      type="text"
+      id="username"
+      name="username"
+      fromControlName="username"
+    />
     <button type="submit">Submit</button>
   </form>
 </div>
