@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,14 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  valueForm = new FormGroup({
-    input: new FormControl(),
-    username: new FormControl(),
-  });
-
-  onSubmit() {
-    console.log(this.valueForm.value);
-  }
-  // placeholder for our basic form
-  value = '';
-
   title = 'myFlix-Angular-client';
+
+  constructor(public dialog: MatDialog) {}
+  // open a dialog when the signup button clicked
+  openUserRegistrationDialog(): void {
+    this.dialog.open(UserRegistrationFormComponent, {
+      // assign dialog width
+      width: '280px',
+    });
+  }
 }
