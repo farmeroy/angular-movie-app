@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-view',
@@ -7,7 +8,10 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrls: ['./profile-view.component.scss'],
 })
 export class ProfileViewComponent implements OnInit {
-  constructor(public fetchApiData: FetchApiDataService) {}
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    public router: Router
+  ) {}
 
   user: any = {};
 
@@ -33,8 +37,7 @@ export class ProfileViewComponent implements OnInit {
   }
 
   deleteUser(): void {
-    this.fetchApiData.deleteUser(this.user.Username).subscribe((response) => {
-      console.log(response);
-    });
+    const username = this.user.Username;
+    console.log(username);
   }
 }
