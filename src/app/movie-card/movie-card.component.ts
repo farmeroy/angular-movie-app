@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DirectorDialogComponent } from '../director-dialog/director-dialog.component';
 import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
 import { SynopsisDialogComponent } from '../synopsis-dialog/synopsis-dialog.component';
+import { NavigationLayoutComponent } from '../navigation-layout/navigation-layout.component';
 
 @Component({
   selector: 'app-movie-card',
