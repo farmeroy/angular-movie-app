@@ -1,1 +1,22 @@
-<p>{{ this.user.Username }}</p>
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> Your Profile </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ this.user.Username }}</p>
+      <p>{{ this.user.Email }}</p>
+      <p>{{ this.user.Birthday }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="updateUserDetails()">Update Profile</button>
+      <button (click)="deleteUser()">Delete Account</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Your favorite movies</mat-card-title>
+    </mat-card-header>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+</div>
