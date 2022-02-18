@@ -23,4 +23,18 @@ export class ProfileViewComponent implements OnInit {
       return this.user;
     });
   }
+
+  updateUserDetails(): void {
+    this.fetchApiData
+      .updateUserDetails(this.user.Username, this.user)
+      .subscribe((response: any) => {
+        console.log(response);
+      });
+  }
+
+  deleteUser(): void {
+    this.fetchApiData.deleteUser(this.user.Username).subscribe((response) => {
+      console.log(response);
+    });
+  }
 }
