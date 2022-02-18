@@ -21,9 +21,11 @@ export class MovieCardComponent implements OnInit {
     this.getMovies();
   }
 
-  openDirectorDialog(): void {
+  openDirectorDialog(director: object): void {
+    console.log(director);
     this.dialog.open(DirectorDialogComponent, {
       width: '500px',
+      data: { director },
     });
   }
 
