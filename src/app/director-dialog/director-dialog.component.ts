@@ -13,6 +13,5 @@ export class DirectorDialogComponent implements OnInit {
   // name = this.data.director["Name"];
 
   ngOnInit(): void {
-    console.log(this.data);
   }
 }

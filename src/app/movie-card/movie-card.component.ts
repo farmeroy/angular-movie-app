@@ -22,7 +22,6 @@ export class MovieCardComponent implements OnInit {
   }
 
   openDirectorDialog(director: object): void {
-    console.log(director);
     this.dialog.open(DirectorDialogComponent, {
       width: '500px',
       data: { director },
