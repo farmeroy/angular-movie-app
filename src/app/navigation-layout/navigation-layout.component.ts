@@ -18,4 +18,10 @@ export class NavigationLayoutComponent implements OnInit {
   goToMovies(): void {
     this.router.navigate(['movies']);
   }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('Username');
+    this.router.navigate(['']);
+  }
 }
