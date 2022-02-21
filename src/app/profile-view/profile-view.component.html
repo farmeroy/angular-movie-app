@@ -1,18 +1,25 @@
-<div>
+<app-navigation-layout></app-navigation-layout>
+<div style="display: flex; justify-content: center">
   <mat-card>
     <mat-card-header>
       <mat-card-title> Your Profile </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>{{ this.user.Username }}</p>
-      <p>{{ this.user.Email }}</p>
-      <p>{{ this.user.Birthday }}</p>
+      <mat-list>
+        <mat-list-item>Username: {{ this.user.Username }}</mat-list-item>
+        <mat-list-item>Email: {{ this.user.Email }}</mat-list-item>
+        <mat-list-item>Birthday: {{ this.user.Birthday }}</mat-list-item>
+      </mat-list>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="updateUserDetails()">Update Profile</button>
-      <button (click)="deleteUser()">Delete Account</button>
+      <button mat-raised-button (click)="updateUserDetails()">
+        Update Profile
+      </button>
+      <button mat-raised-button (click)="deleteUser()">Delete Account</button>
     </mat-card-actions>
   </mat-card>
+</div>
+<div>
   <mat-card>
     <mat-card-header>
       <mat-card-title>Your favorite movies</mat-card-title>
