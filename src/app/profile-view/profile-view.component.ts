@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
+import { UserUpdateFormComponent } from '../user-update-form/user-update-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-profile-view',
@@ -10,7 +12,8 @@ import { Router } from '@angular/router';
 export class ProfileViewComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
-    public router: Router
+    public router: Router,
+    public dialog: MatDialog
   ) {}
 
   user: any = {};
@@ -29,11 +32,7 @@ export class ProfileViewComponent implements OnInit {
   }
 
   updateUserDetails(): void {
-    this.fetchApiData
-      .updateUserDetails(this.user.Username, this.user)
-      .subscribe((response: any) => {
-        console.log(response);
-      });
+    this.dialog.open(UserUpdateFormComponent, { width: '500px' });
   }
 
   deleteUser(): void {
