@@ -25,6 +25,7 @@ import { SynopsisDialogComponent } from './synopsis-dialog/synopsis-dialog.compo
 import { NavigationLayoutComponent } from './navigation-layout/navigation-layout.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { UserUpdateFormComponent } from './user-update-form/user-update-form.component';
+import { DeleteUserDialogComponent } from './delete-user-dialog/delete-user-dialog.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
     NavigationLayoutComponent,
     ProfileViewComponent,
     UserUpdateFormComponent,
+    DeleteUserDialogComponent,
   ],
   imports: [
     BrowserModule,
