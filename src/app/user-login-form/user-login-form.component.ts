@@ -19,9 +19,12 @@ export class UserLoginFormComponent implements OnInit {
     public router: Router
   ) {}
 
+  isLoading = false;
+
   ngOnInit(): void {}
 
   loginUser(): void {
+    this.isLoading = true;
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
       localStorage.setItem('token', response.token);
       localStorage.setItem('Username', response.user.Username);
