@@ -4,7 +4,7 @@
 >
   <mat-card
     *ngFor="let movie of movies; let i = index"
-    style="flex: 1; min-width: 300px; max-width: 300px; margin: 5px"
+    style="flex: 1; min-width: 200px; max-width: 200px; margin: 5px"
   >
     <mat-card-header>
       <mat-card-title>{{ movie.Title }}</mat-card-title>
@@ -13,7 +13,7 @@
       >
     </mat-card-header>
     <img mat-card-image src="{{ movie.ImagePath }}" />
-    <mat-card-actions>
+    <mat-menu #menu="matMenu">
       <button mat-button color="primary" (click)="openGenreDialog(movie.Genre)">
         Genre
       </button>
@@ -31,7 +31,18 @@
       >
         Synopsis
       </button>
-      <mat-icon>favorite_border</mat-icon>
+    </mat-menu>
+    <mat-card-actions style="display: flex; justify-content: flex-start">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>favorite_border</mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
