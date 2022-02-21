@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
 import { UserUpdateFormComponent } from '../user-update-form/user-update-form.component';
+import { DeleteUserDialogComponent } from '../delete-user-dialog/delete-user-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -36,7 +37,6 @@ export class ProfileViewComponent implements OnInit {
   }
 
   deleteUser(): void {
-    const username = this.user.Username;
-    console.log(username);
+    this.dialog.open(DeleteUserDialogComponent, { width: '500px' });
   }
 }
