@@ -10,6 +10,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -52,6 +54,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MatProgressSpinnerModule,
+    MatMenuModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
