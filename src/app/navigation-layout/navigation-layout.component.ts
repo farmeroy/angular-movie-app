@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-layout',
   templateUrl: './navigation-layout.component.html',
-  styleUrls: ['./navigation-layout.component.scss']
+  styleUrls: ['./navigation-layout.component.scss'],
 })
 export class NavigationLayoutComponent implements OnInit {
+  constructor(public router: Router) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  goToProfile(): void {
+    this.router.navigate(['profile']);
   }
 
+  goToMovies(): void {
+    this.router.navigate(['movies']);
+  }
 }
