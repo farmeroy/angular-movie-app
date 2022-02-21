@@ -24,6 +24,7 @@ import { GenreDialogComponent } from './genre-dialog/genre-dialog.component';
 import { SynopsisDialogComponent } from './synopsis-dialog/synopsis-dialog.component';
 import { NavigationLayoutComponent } from './navigation-layout/navigation-layout.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { UserUpdateFormComponent } from './user-update-form/user-update-form.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     SynopsisDialogComponent,
     NavigationLayoutComponent,
     ProfileViewComponent,
+    UserUpdateFormComponent,
   ],
   imports: [
     BrowserModule,
