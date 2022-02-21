@@ -1,5 +1,9 @@
 <div>
-  <mat-toolbar>
-    <mat-toolbar-row>Pre-Code Flix </mat-toolbar-row>
+  <mat-toolbar style="position: sticky; top: 0">
+    <mat-toolbar-row>
+      <span>Pre-Code Flix </span>
+      <button mat-button (click)="goToProfile()">Profile</button>
+      <button mat-button (click)="goToMovies()">Movies</button>
+    </mat-toolbar-row>
   </mat-toolbar>
 </div>
