@@ -13,6 +13,7 @@ import { NavigationLayoutComponent } from '../navigation-layout/navigation-layou
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
+  userFavs: any[] = [];
 
   // separate multiple methods with a comma
   constructor(
@@ -22,6 +23,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getUserFavs();
   }
 
   openDirectorDialog(director: object): void {
@@ -45,11 +47,45 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  addToUserFavs(id: string): void {
+    console.log(id);
+    const username = localStorage.getItem('Username') || '';
+    this.fetchApiData.addFavMovie(username, id).subscribe((response: any) => {
+      console.log(response);
+    });
+    this.ngOnInit();
+  }
+
+  removeFromUserFavs(id: string): void {
+    const username = localStorage.getItem('Username') || '';
+    this.fetchApiData
+      .removeFavMovie(username, id)
+      .subscribe((response: any) => {
+        console.log(response);
+      });
+    this.ngOnInit();
+  }
+
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((response: any) => {
       this.movies = response;
       console.log(this.movies);
       return this.movies;
     });
+  }
+
+  getUserFavs(): void {
+    const username = localStorage.getItem('Username') || '';
+    this.fetchApiData.getFavMovies(username).subscribe((response: any) => {
+      this.userFavs = response.FavMovies;
+      console.log(this.userFavs);
+      return this.userFavs;
+    });
+  }
+
+  isFav(id: string): boolean {
+    const isFav = this.userFavs.indexOf(id) > -1;
+    console.log(isFav);
+    return isFav;
   }
 }
