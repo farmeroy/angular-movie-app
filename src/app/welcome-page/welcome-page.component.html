@@ -1,22 +1,31 @@
 <div class="main-page">
-  <h1>Welcome to Pre-Code Flix</h1>
-  <button
-    mat-raised-button
-    (click)="openUserRegistrationDialog()"
-    style="margin-right: 10px"
-    color="primary"
-  >
-    Sign Up
-  </button>
-  <button
-    mat-raised-button
-    (click)="openUserLoginDialog()"
-    style="margin-right: 10px"
-    color="primary"
-  >
-    Login
-  </button>
-  <button mat-raised-button color="primary" (click)="openMoviesDialog()">
-    All Movies
-  </button>
+  <mat-card class="welcome-card">
+    <h1>Welcome to Pre-Code Flix</h1>
+    <mat-card-actions class="actions">
+      <button
+        mat-raised-button
+        (click)="openUserRegistrationDialog()"
+        style="margin-right: 10px"
+        color="primary"
+      >
+        Sign Up
+      </button>
+      <button
+        mat-raised-button
+        (click)="openUserLoginDialog()"
+        style="margin-right: 10px"
+        color="primary"
+      >
+        Login
+      </button>
+    </mat-card-actions>
+    <mat-card-content>
+      Pre-Code Flix is a premium collection of movies from early Hollywood. The
+      "Code" refers to the Hayes Code. Adopted in 1934 and in place until 1968,
+      the Hayes Code enforced strict self-censorship in Hollywood, forbidding
+      many things from the depictions of drug use and criminality to the satire
+      of religious and political figures. <br />
+      Pre-Code flix has all the best films from before this error of censorship.
+    </mat-card-content>
+  </mat-card>
 </div>
