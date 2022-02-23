@@ -10,7 +10,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 // Declare the api url
-const apiUrl = ' http://pre-code-flix.herokuapp.com/';
+const apiUrl = ' https://pre-code-flix.herokuapp.com/';
 // logic for error handling
 
 @Injectable({
