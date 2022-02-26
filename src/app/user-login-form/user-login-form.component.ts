@@ -23,6 +23,11 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * This function sends an API request for a JWT token and user information
+   * The response from the API request is stored in local storage
+   * The app then navigates to the user view
+   */
   loginUser(): void {
     this.isLoading = true;
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {

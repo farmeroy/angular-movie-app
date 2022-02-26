@@ -23,6 +23,10 @@ export class ProfileViewComponent implements OnInit {
     this.getUserDetails();
   }
 
+  /**
+   * Sends an API all for user data
+   * @returns user <object>
+   */
   getUserDetails(): void {
     const username = localStorage.getItem('Username');
     this.fetchApiData.getUserDetails(username).subscribe((response: any) => {
@@ -32,10 +36,16 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens a form to update user info
+   */
   updateUserDetails(): void {
     this.dialog.open(UserUpdateFormComponent, { width: '500px' });
   }
 
+  /**
+   * Opens a form to delete the user
+   */
   deleteUser(): void {
     this.dialog.open(DeleteUserDialogComponent, { width: '500px' });
   }

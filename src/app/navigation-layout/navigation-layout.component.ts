@@ -19,6 +19,10 @@ export class NavigationLayoutComponent implements OnInit {
     this.router.navigate(['movies']);
   }
 
+  /**
+   * Logs out the user
+   * Removes user information from local storage
+   */
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('Username');

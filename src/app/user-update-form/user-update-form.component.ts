@@ -22,12 +22,16 @@ export class UserUpdateFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Takes the information in the user form (this.userData)
+   * and sends it to fetchApiData.updateUserDetails
+   */
   updateUserDetails(): void {
     const username = localStorage.getItem('Username') || '';
     this.fetchApiData
       .updateUserDetails(username, this.userData)
       .subscribe((response) => {
-        console.log(response);
+        // console.log(response);
         this.dialogRef.close();
       });
   }

@@ -22,7 +22,11 @@ export class UserRegistrationFormComponent implements OnInit {
 
   isLoading = false;
 
-  // send the form inputs to the backend
+  /**
+   * Takes the data entered into the user form (this.userData)
+   * and sends it to the API with fetchApiData.userRegistration
+   * @returns snackbar message
+   */
   registerUser(): void {
     this.isLoading = true;
     this.fetchApiData.userRegistration(this.userData).subscribe((response) => {

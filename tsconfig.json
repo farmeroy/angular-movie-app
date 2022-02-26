@@ -26,5 +26,22 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "./src/app/fetch-api-data.service.ts",
+      "./src/app/movie-card/movie-card.component.ts",
+      "./src/app/genre-dialog/genre-dialog.component.ts",
+      "./src/app/profile-view/profile-view.component.ts",
+      "./src/app/welcome-page/welcome-page.component.ts",
+      "./src/app/director-dialog/director-dialog.component.ts",
+      "./src/app/synopsis-dialog/synopsis-dialog.component.ts",
+      "./src/app/user-login-form/user-login-form.component.ts",
+      "./src/app/user-update-form/user-update-form.component.ts",
+      "./src/app/navigation-layout/navigation-layout.component.ts",
+      "./src/app/delete-user-dialog/delete-user-dialog.component.ts",
+      "./src/app/user-registration-form/user-registration-form.component.ts"
+    ],
+    "out": "doc"
   }
 }

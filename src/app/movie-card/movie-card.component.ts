@@ -1,3 +1,10 @@
+/**
+ * Renders a view of all movies the movies in the database
+ * The movies are each represented in a movie card component
+ * Also renders the NavigationLayoutComponent
+ * @module MovieCardComponent
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -26,6 +33,10 @@ export class MovieCardComponent implements OnInit {
     this.getUserFavs();
   }
 
+  /**
+   * Opens the director dialog
+   * @param director object (director: <object>)
+   */
   openDirectorDialog(director: object): void {
     this.dialog.open(DirectorDialogComponent, {
       width: '500px',
@@ -33,6 +44,10 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens the genre description
+   * @param genre object (genre: <object>)
+   */
   openGenreDialog(genre: object): void {
     this.dialog.open(GenreDialogComponent, {
       width: '500px',
@@ -40,6 +55,10 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens the movie's synopsis
+   * @param movie.description (description: <string>)
+   */
   openSynopsisDialog(description: string): void {
     this.dialog.open(SynopsisDialogComponent, {
       width: '500px',
@@ -47,15 +66,25 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Add the movie to user favorites
+   * @param movie id {id: <string>}
+   */
   addToUserFavs(id: string): void {
     console.log(id);
     const username = localStorage.getItem('Username') || '';
     this.fetchApiData.addFavMovie(username, id).subscribe((response: any) => {
       console.log(response);
     });
+    // reloads the page to rerender the heart icons
+    // this should be fixed
     this.ngOnInit();
   }
 
+  /**
+   * Remove the movie from user favorites
+   * @param id {id: <string>}
+   */
   removeFromUserFavs(id: string): void {
     const username = localStorage.getItem('Username') || '';
     this.fetchApiData
@@ -66,6 +95,11 @@ export class MovieCardComponent implements OnInit {
     this.ngOnInit();
   }
 
+  /**
+   * This function sends an API call to
+   * the database and sets the this.movies
+   * properties to the response.
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((response: any) => {
       this.movies = response;
@@ -74,18 +108,28 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Calls the getFavMovies() API service and
+   * sets this.userFavs to the response.
+   * Username is fetched from local storage
+   */
   getUserFavs(): void {
     const username = localStorage.getItem('Username') || '';
     this.fetchApiData.getFavMovies(username).subscribe((response: any) => {
       this.userFavs = response.FavMovies;
-      console.log(this.userFavs);
+      // console.log(this.userFavs);
       return this.userFavs;
     });
   }
 
+  /**
+   * determines if the movie is in the user favorites
+   * @param id {id: string}
+   * @returns boolean
+   */
   isFav(id: string): boolean {
     const isFav = this.userFavs.indexOf(id) > -1;
-    console.log(isFav);
+    // console.log(isFav);
     return isFav;
   }
 }
